@@ -9,27 +9,7 @@ const chartStorage = require("../lib/chartStorage")
 
 const fs = require("fs")
 
-function initDomFromFiles(htmlPath, jsPath) {
-    const html = fs.readFileSync(htmlPath, 'utf8')
-    document.open()
-    document.write(html)
-    document.close()
-    jest.isolateModules(function () {
-        require(jsPath)
-    })
-}
-// function initDomFromFiles(jsPath) {
-//     jest.isolateModules(function () {
-//         require(jsPath)
-//     })
-// }
-
 test("Test that a chart is saved", function(){
-    initDomFromFiles(
-        "../src/index.html",
-        "../gallery/gallery.js"
-    )
-    // initDomFromFiles("../lib/chartStorage")
     testChart = {
         type: "line",
         data: [
@@ -41,10 +21,12 @@ test("Test that a chart is saved", function(){
         title: "test chart",
         color: "#ff4500"
     }
-    testID = 1;
+    testID = 0;
     chartStorage.saveChart(testChart, testID)
+    
+    const chartsJson = window.localStorage.getItem("savedCharts") || "[]"
+    const charts = JSON.parse(chartsJson)
+    const savedTitle = charts[testID].title
 
-    const galleryTitle = domTesting.findByAltText(testChart.title)
-
-    expect(galleryTitle).toBe(testChart.title)
+    expect(savedTitle).toBe(testChart.title)
 })
