@@ -46,10 +46,11 @@ Cypress.Commands.add("fillGraphData", function (){
 })
 
 Cypress.Commands.add("constructChart", function (graphType){
-    cy.get(graphType).click()
+    cy.contains(graphType).click()
     cy.fillGraphData()
     cy.get('#chart-img').should('be.visible')
 })
+
 
 Cypress.Commands.add("shouldContain", function(){
     cy.get('input#chart-title-input').should('have.value', 'Valorant vs. Apex');
