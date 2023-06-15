@@ -22,7 +22,6 @@ jobs:
       - name: Install dependencies and Build
         run: |
           npm ci
-          npm run build
 
       - name: Run e2e tests
         uses: cypress-io/github-action@v2
