@@ -7,7 +7,6 @@
     "start": "webpack serve --open",
     "test": "jest",
     "test:unit": "jest --findRelatedTests"
-    }
   },
   "devDependencies": {
     "css-loader": "^6.8.1",
