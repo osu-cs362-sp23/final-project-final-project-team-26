@@ -4,8 +4,13 @@
   "description": "CS 362 Final Project",
   "scripts": {
     "build": "webpack",
+    "cy:open": "cypress open",
     "start": "webpack serve --open",
-    "cy:open": "cypress open"
+    "cy:run": "cypress run",
+    "test": "jest",
+    "test:unit": "jest ./src/tests",
+    "test:e2e": "start-test start http://localhost:3000/ cy:run",
+    "test:integration": "jest"
   },
   "devDependencies": {
     "css-loader": "^6.7.4",
