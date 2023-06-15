@@ -8,7 +8,8 @@
     "test": "jest",
     "test:unit": "jest ./src/__tests__",
     "cy:open": "cypress open",
-    "test:e2e": "cy:open"
+    "test:e2e": "start-test start http://localhost:3000/ cy:run",
+    "test:integration": "jest"
   },
   "devDependencies": {
     "css-loader": "^6.8.1",
