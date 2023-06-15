@@ -1,4 +1,4 @@
-name: e2e Tests
+name: E2E Tests
 on:
   workflow_call:
     inputs:
@@ -9,38 +9,32 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-uses: actions/checkout@v3
-uses: actions/setup-node@v3
-    with:
-      node-version: 18
-run: npm ci
-run: npm run build
-run: npm run test:integration
-name: Build and test
-on:
-  workflow_call:
-    inputs:
-      upload-pages-artifact:
-        type: boolean
-        required: false
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
 
-uses: actions/checkout@v3
-uses: actions/setup-node@v3
-    with:
-      node-version: 18
-run: npm ci
-run: npm run build
-run: npm run test:e2e
-uses: actions/upload-artifact@v3
-with:
-  name: e2e-videos
-  path: cypress/videos/
-if: ${{ inputs.upload-pages-artifact }}
-uses: actions/upload-pages-artifact@v1
-with:
-  path: build/
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Run E2E tests
+        run: npm run test:e2e
+
+      - name: Upload e2e videos
+        uses: actions/upload-artifact@v2
+        with:
+          name: e2e-videos
+          path: cypress/videos/
+
+      - name: Upload pages artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: pages-artifact
+          path: build/
+        if: ${{ inputs.upload-pages-artifact }}
