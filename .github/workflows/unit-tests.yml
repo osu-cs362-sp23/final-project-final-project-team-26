@@ -11,10 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install Dependencies
-        run: npm install
-       ## run: run build
-
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -23,5 +19,11 @@ jobs:
         with:
           node-version: 14.x
 
+      - name: Install Dependencies and Build
+        run: |
+          npm install
+          npm run build
+
       - name: Run unit tests
         run: npm run test:unit
+
