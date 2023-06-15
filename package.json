@@ -9,7 +9,7 @@
     "cy:run": "cypress run",
     "test": "jest",
     "test:unit": "jest ./src/tests",
-    "test:e2e": "start-test start http://localhost:3000/ cy:run",
+    "test:e2e": "cypress run",
     "test:integration": "jest"
   },
   "devDependencies": {
