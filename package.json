@@ -6,7 +6,8 @@
     "build": "webpack",
     "start": "webpack serve --open",
     "test": "jest",
-    "test:unit": "jest ./src/__tests__"
+    "test:unit": "jest ./src/__tests__",
+    "test:e2e": "cy:open"
   },
   "devDependencies": {
     "css-loader": "^6.8.1",
