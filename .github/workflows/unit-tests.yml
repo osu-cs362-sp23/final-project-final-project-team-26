@@ -16,4 +16,4 @@ uses: actions/setup-node@v3
       node-version: 18
 run: npm ci
 run: npm run build
-run: npm run test:unit-tests
+run: npm run test:unit-test

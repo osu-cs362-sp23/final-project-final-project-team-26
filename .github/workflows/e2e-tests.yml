@@ -1,4 +1,4 @@
-name: Build and test
+name: e2e Tests
 on:
   workflow_call:
     inputs:
@@ -44,7 +44,3 @@ if: ${{ inputs.upload-pages-artifact }}
 uses: actions/upload-pages-artifact@v1
 with:
   path: build/
-﻿
-Waltz
-waltzot
-Veni, vidi, vici
