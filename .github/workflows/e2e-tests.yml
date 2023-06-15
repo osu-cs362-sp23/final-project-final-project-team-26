@@ -1,15 +1,16 @@
 name: E2E Tests
 on:
+  pull_request:
+    branches:
+      - main
   workflow_call:
     inputs:
       upload-pages-artifact:
         type: boolean
         required: false
-
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -38,5 +39,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: pages-artifact
-          path: dist/
+          path: build/
         if: ${{ inputs.upload-pages-artifact }}
+
