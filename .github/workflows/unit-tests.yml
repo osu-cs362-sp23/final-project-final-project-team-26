@@ -1,28 +1,19 @@
 name: Unit Tests
-
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+  workflow_call:
+    inputs:
+      upload-pages-artifact:
+        type: boolean
+        required: false
 jobs:
-  unit-tests:
+  build-and-test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14.x
-
-      - name: Install Dependencies and Build
-        run: |
-          npm install
-
-      - name: Run unit tests
-        run: npm run test:unit
-
+      
+uses: actions/checkout@v3
+uses: actions/setup-node@v3
+    with:
+      node-version: 18
+run: npm ci
+run: npm run build
+run: npm run test:unit-tests

@@ -1,31 +1,50 @@
-name: E2E Tests
-
+name: Build and test
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+  workflow_call:
+    inputs:
+      upload-pages-artifact:
+        type: boolean
+        required: false
 jobs:
-  e2e-tests:
+  build-and-test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
 
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14.x
+uses: actions/checkout@v3
+uses: actions/setup-node@v3
+    with:
+      node-version: 18
+run: npm ci
+run: npm run build
+run: npm run test:integration
+name: Build and test
+on:
+  workflow_call:
+    inputs:
+      upload-pages-artifact:
+        type: boolean
+        required: false
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
 
-      - name: Install dependencies and Build
-        run: |
-          npm ci
-
-      - name: Run e2e tests
-        uses: cypress-io/github-action@v2
-        with:
-          start: npm start
-          wait-on: 'http://localhost:3000'
-          command: npm run test:e2e
+uses: actions/checkout@v3
+uses: actions/setup-node@v3
+    with:
+      node-version: 18
+run: npm ci
+run: npm run build
+run: npm run test:e2e
+uses: actions/upload-artifact@v3
+with:
+  name: e2e-videos
+  path: cypress/videos/
+if: ${{ inputs.upload-pages-artifact }}
+uses: actions/upload-pages-artifact@v1
+with:
+  path: build/
+﻿
+Waltz
+waltzot
+Veni, vidi, vici
