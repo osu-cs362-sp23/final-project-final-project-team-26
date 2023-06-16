@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "CS 362 Final Project",
   "scripts": {
+    "start": "wepback serve --open",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "start http://localhost:3000/ cy:run",
+    "test:integration": "jest",
     "build": "webpack",
     "start": "webpack serve --open",
     "test": "jest",
