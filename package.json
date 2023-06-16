@@ -7,20 +7,10 @@
     "cy:open": "cypress open",
     "start": "webpack serve --open",
     "cy:run": "cypress run",
+    "test:e2e": "npm start & cypress run",
     "test": "jest",
     "test:unit": "jest ./src/tests",
-    "test:e2e": "cypress run",
     "test:integration": "jest"
-  },
-  "devDependencies": {
-    "css-loader": "^6.7.4",
-    "cypress": "^12.13.0",
-    "test": "jest",
-    "test:unit": "jest ./src/__tests__"
-  },
-  "devDependencies": {
-    "test": "jest",
-    "test:unit": "jest ./src/__tests__"
   },
   "devDependencies": {
     "css-loader": "^6.8.1",
