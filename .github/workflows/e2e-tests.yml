@@ -1,9 +1,11 @@
 name: E2E Tests
-on: 
-  push: 
-    branches: [ main ]
-  pull_request: 
-    branches: [ main ]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   e2e-tests:
@@ -15,13 +17,13 @@ jobs:
 
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
-        with: 
+        with:
           node-version: 14.x
 
       - name: Install Dependencies and Build
-      run: |
-        npm install
-        npm run build
+        run: |
+          npm install
+          npm run build
 
       - name: Run e2e tests
-      run: npm run tests:e2e
+        run: npm run test:e2e
