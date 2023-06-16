@@ -1,5 +1,5 @@
 name: Build and test
-on: []
+on:
   workflow_call:
     inputs:
       upload-pages-artifact:
