@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "description": "CS 362 Final Project",
   "scripts": {
-    "start": "serve todos -p 3000",
+    "start": "wepback serve --open",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test:e2e": "start-test start http://localhost:3000/ cy:run",
+    "test:e2e": "start http://localhost:3000/ cy:run",
     "test:integration": "jest",
-    "test": "npm-run-all test:*",
-    "build": "./build.sh"
+    "build": "webpack"
   },
   "devDependencies": {
     "cypress": "^12.12.0",
