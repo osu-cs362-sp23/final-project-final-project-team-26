@@ -1,5 +1,8 @@
 name: E2E Tests
 on:
+  pull_request:
+    branches:
+      - main
   workflow_call:
     inputs:
       upload-pages-artifact:
@@ -38,3 +41,4 @@ jobs:
           name: pages-artifact
           path: build/
         if: ${{ inputs.upload-pages-artifact }}
+
