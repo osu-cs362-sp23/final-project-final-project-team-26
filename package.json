@@ -3,24 +3,25 @@
   "version": "1.0.0",
   "description": "CS 362 Final Project",
   "scripts": {
-    "start": "wepback serve --open",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "test:e2e": "start http://localhost:3000/ cy:run",
-    "test:integration": "jest",
-    "build": "webpack",
-    "cy:open": "cypress open",
     "start": "webpack serve --open",
+    "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test:e2e": "npm start & cypress run",
+    "test:integration": "jest",
+    "build": "webpack",
     "test": "jest",
-    "test:unit": "jest ./src/tests",
-    "test:integration": "jest"
+    "test:unit": "jest ./src/tests"
   },
   "devDependencies": {
-    "css-loader": "^6.8.1",
+    "@testing-library/dom": "^9.3.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/user-event": "^14.4.3",
+    "css-loader": "^6.7.4",
     "cypress": "^12.14.0",
     "html-webpack-plugin": "^5.5.1",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "jsdom": "^22.1.0",
     "style-loader": "^3.3.3",
     "webpack": "^5.83.1",
     "webpack-cli": "^5.1.1",
@@ -30,5 +31,9 @@
     "moduleNameMapper": {
       "\\.css$": "<rootDir>/src/__mocks__/styleMock.js"
     }
+  },
+  "dependencies": {
+    "msw": "^1.2.2",
+    "whatwg-fetch": "^3.6.2"
   }
 }
