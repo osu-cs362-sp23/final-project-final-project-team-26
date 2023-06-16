@@ -3,9 +3,19 @@
   "version": "1.0.0",
   "description": "CS 362 Final Project",
   "scripts": {
+    "start": "wepback serve --open",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "start http://localhost:3000/ cy:run",
+    "test:integration": "jest",
     "build": "webpack",
+    "cy:open": "cypress open",
     "start": "webpack serve --open",
-    "test": "jest"
+    "cy:run": "cypress run",
+    "test:e2e": "npm start & cypress run",
+    "test": "jest",
+    "test:unit": "jest ./src/tests",
+    "test:integration": "jest"
   },
   "devDependencies": {
     "@testing-library/dom": "^9.3.0",
