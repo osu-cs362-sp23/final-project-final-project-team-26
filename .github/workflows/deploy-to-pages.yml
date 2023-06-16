@@ -1,5 +1,5 @@
 name: Deploy to GH Pages
-on:
+on: [ pull_request ]
   push:
     branches:
       
