@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "css-loader": "^6.8.1",
+    "cypress": "^12.14.0",
     "html-webpack-plugin": "^5.5.1",
     "style-loader": "^3.3.3",
     "webpack": "^5.83.1",
